@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order Ahead | Mas Salsa Tex Mex Restaurant</title>
+  <meta name="description" content="Mas Salsa Tex Mex Restaurant demo website with order ahead flow, menu, events, and contact info.">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="data.js"></script>
+  <script defer src="site.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img class="brand-mark" src="assets/logo-cropped.jpg" alt="Mas Salsa Tex Mex Restaurant logo">
+        <div class="brand-text">
+          <strong>Mas Salsa Tex Mex Restaurant</strong>
+          <span>Springtown, Texas</span>
+        </div>
+      </a>
+      <nav class="site-nav" data-site-nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="order.html">Order Ahead</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">About / Contact</a>
+      </nav>
+      <a class="btn btn-secondary btn-small cart-mini" href="order.html">Cart <span class="cart-badge" data-cart-count>0</span></a>
+      <button class="mobile-nav-toggle" data-mobile-nav-toggle aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Pickup-only demo</p>
+        <h1 class="page-title">Order Ahead</h1>
+        <p class="page-intro">This is the app-style part of the demo. Add items, change quantity, choose a pickup time, and walk all the way through a fake confirmation screen so the owner can feel how the real product should work.</p>
+        <div class="toolbar">
+          <input class="search" data-order-search type="search" placeholder="Search orderable items">
+          <div class="chip-row" data-category-chips="order"></div>
+        </div>
+      </div>
+    </section>
+    <section class="section-tight">
+      <div class="container order-layout">
+        <div class="menu-stack" data-render="order-page"></div>
+        <aside class="cart-panel">
+          <p class="eyebrow">Demo cart</p>
+          <h3>Pickup order</h3>
+          <p class="menu-meta">Fully clickable. No real payment. No backend wiring yet.</p>
+          <div class="cart-items" data-cart-items></div>
+          <div class="cart-summary" data-cart-summary></div>
+          <button class="btn btn-secondary btn-small" data-clear-cart type="button">Clear cart</button>
+
+          <form class="order-form" id="demo-order-form">
+            <div class="field-grid">
+              <input class="input" name="name" placeholder="Pickup name" required>
+              <input class="input" name="phone" placeholder="Phone number" required>
+            </div>
+            <select class="select" name="pickupTime" required></select>
+            <textarea class="textarea" name="notes" placeholder="Extra notes for the demo order"></textarea>
+            <button class="btn btn-primary" type="submit">Place Demo Order</button>
+          </form>
+        </aside>
+      </div>
+    </section>
+    <section class="section-tight">
+      <div class="container" id="order-confirmation" hidden></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-shell section-shell">
+        <div>
+          <img class="footer-logo" src="assets/logo-cropped.jpg" alt="Mas Salsa logo">
+          <p>Demo build for Mas Salsa Tex Mex Restaurant. Built to feel real, stay deployable on GitHub Pages, and give the owner a believable order-ahead experience.</p>
+        </div>
+        <div>
+          <h3>Visit</h3>
+          <ul>
+            <li><a data-maps target="_blank" rel="noreferrer">5500 W Highway 199, Springtown, TX 76082</a></li>
+            <li><a data-phone-href><span data-phone>(817) 220-6555</span></a></li>
+            <li><a data-facebook target="_blank" rel="noreferrer">Facebook page</a></li>
+            <li><a href="order.html">Order Ahead demo</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Hours</h3>
+          <div class="hours-panel" data-render="hours"></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

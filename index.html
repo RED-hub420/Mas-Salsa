@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mas Salsa Tex Mex Restaurant | Demo</title>
+  <meta name="description" content="Mas Salsa Tex Mex Restaurant demo website with order ahead flow, menu, events, and contact info.">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="data.js"></script>
+  <script defer src="site.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img class="brand-mark" src="assets/logo-cropped.jpg" alt="Mas Salsa Tex Mex Restaurant logo">
+        <div class="brand-text">
+          <strong>Mas Salsa Tex Mex Restaurant</strong>
+          <span>Springtown, Texas</span>
+        </div>
+      </a>
+      <nav class="site-nav" data-site-nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="order.html">Order Ahead</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">About / Contact</a>
+      </nav>
+      <a class="btn btn-secondary btn-small cart-mini" href="order.html">Cart <span class="cart-badge" data-cart-count>0</span></a>
+      <button class="mobile-nav-toggle" data-mobile-nav-toggle aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-shell section-shell">
+          <div class="hero-copy">
+            <p class="eyebrow">Springtown Tex-Mex • pickup • live music</p>
+            <h1>Food that hits. Margaritas that sell themselves.</h1>
+            <p>This demo is built to make Mas Salsa feel like a real, modern restaurant website right now—full menu, order-ahead flow, event page, and enough polish that an owner can click around and instantly get the vision.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="order.html">Start Order Ahead Demo</a>
+              <a class="btn btn-secondary" href="menu.html">Browse the Full Menu</a>
+            </div>
+            <div class="hero-meta">
+              <div class="meta-card">
+                <span>Address</span>
+                <strong>5500 W Highway 199</strong>
+              </div>
+              <div class="meta-card">
+                <span>Hours</span>
+                <strong>Mon–Thu 11–8 • Fri–Sat 11–9</strong>
+              </div>
+              <div class="meta-card">
+                <span>Call</span>
+                <strong>(817) 220-6555</strong>
+              </div>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img class="tile tall" src="assets/food-skillet.jpg" alt="Mas Salsa skillet plate">
+            <img class="tile" src="assets/food-margarita-quesadilla.jpg" alt="Margarita and quesadilla">
+            <img class="tile" src="assets/food-flight-tacos.jpg" alt="Drinks and tacos">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container info-strip">
+        <article class="info-card">
+          <h3>Order Ahead</h3>
+          <p>Pickup-only demo flow with a working cart, pickup time selector, and fake confirmation screen.</p>
+          <a class="btn btn-small btn-primary" href="order.html">Try the checkout</a>
+        </article>
+        <article class="info-card">
+          <h3>Live Music</h3>
+          <p>Mas Salsa already has the right energy. The site should sell the music nights, not hide them.</p>
+          <a class="btn btn-small btn-secondary" href="events.html">See events</a>
+        </article>
+        <article class="info-card">
+          <h3>Pick Up or Dine In</h3>
+          <p>Built around dine-in, outdoor seating, and in-store pickup—simple, honest, and believable.</p>
+          <a class="btn btn-small btn-secondary" href="contact.html">Location & hours</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Featured picks</p>
+            <h2>Lead with what actually sells</h2>
+          </div>
+          <a class="btn btn-secondary btn-small" href="menu.html">See full menu</a>
+        </div>
+        <div class="feature-grid" data-render="featured-items"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container section-shell">
+        <div class="cta-band">
+          <div class="cta-copy">
+            <p class="eyebrow">Live music matters</p>
+            <h2>Don’t make the owner explain the vibe. Show it.</h2>
+            <p>Mas Salsa is not just plates and margaritas. The events and music nights are part of the draw. This homepage pushes that instead of burying it in a random social feed.</p>
+            <div class="inline-actions">
+              <a class="btn btn-primary" href="events.html">See event page</a>
+              <a class="btn btn-ghost" href="contact.html">Call for details</a>
+            </div>
+          </div>
+          <div class="cta-image">
+            <img src="assets/event-texas-backroads.jpg" alt="Texas Backroads event flyer at Mas Salsa">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Upcoming dates</p>
+            <h2>Keep the homepage active</h2>
+          </div>
+        </div>
+        <div class="event-grid" data-render="upcoming-events"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Gallery</p>
+            <h2>Food and drinks that do the talking</h2>
+          </div>
+        </div>
+        <div class="gallery-grid">
+          <img src="assets/food-burrito-plate.jpg" alt="Burrito plate">
+          <img src="assets/food-tacos-beer.jpg" alt="Tacos plate with drinks">
+          <img src="assets/food-loaded-plate.jpg" alt="Loaded Tex-Mex plate">
+          <img src="assets/food-soup-plate.jpg" alt="Soup and enchilada plate">
+          <img src="assets/food-shrimp-plate.jpg" alt="Shrimp plate">
+          <img src="assets/food-skillet.jpg" alt="Skillet plate">
+          <img src="assets/food-margarita-quesadilla.jpg" alt="Margarita with quesadilla">
+          <img src="assets/phone-poster.jpg" alt="Mas Salsa pickup order poster">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container section-shell">
+        <div class="hiring-banner">
+          <img src="assets/hiring.jpg" alt="Now hiring flyer">
+          <div class="hiring-copy">
+            <p class="eyebrow">Now hiring</p>
+            <h2>Small hiring block. Not a bloated careers page.</h2>
+            <p>This demo keeps hiring visible without wasting a whole page on it. That is the right move for a local restaurant site.</p>
+            <ul>
+              <li>Part-time second shift servers</li>
+              <li>18+ • no experience needed, but preferred</li>
+              <li>Food handlers and TABC certification requested on the flyer</li>
+            </ul>
+            <div class="inline-actions">
+              <a class="btn btn-primary" href="contact.html">Call the restaurant</a>
+              <a class="btn btn-secondary" data-facebook target="_blank" rel="noreferrer">See Facebook updates</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-shell section-shell">
+        <div>
+          <img class="footer-logo" src="assets/logo-cropped.jpg" alt="Mas Salsa logo">
+          <p>Demo build for Mas Salsa Tex Mex Restaurant. Built to feel real, stay deployable on GitHub Pages, and give the owner a believable order-ahead experience.</p>
+        </div>
+        <div>
+          <h3>Visit</h3>
+          <ul>
+            <li><a data-maps target="_blank" rel="noreferrer">5500 W Highway 199, Springtown, TX 76082</a></li>
+            <li><a data-phone-href><span data-phone>(817) 220-6555</span></a></li>
+            <li><a data-facebook target="_blank" rel="noreferrer">Facebook page</a></li>
+            <li><a href="order.html">Order Ahead demo</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Hours</h3>
+          <div class="hours-panel" data-render="hours"></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

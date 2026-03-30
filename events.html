@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Events | Mas Salsa Tex Mex Restaurant</title>
+  <meta name="description" content="Mas Salsa Tex Mex Restaurant demo website with order ahead flow, menu, events, and contact info.">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="data.js"></script>
+  <script defer src="site.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img class="brand-mark" src="assets/logo-cropped.jpg" alt="Mas Salsa Tex Mex Restaurant logo">
+        <div class="brand-text">
+          <strong>Mas Salsa Tex Mex Restaurant</strong>
+          <span>Springtown, Texas</span>
+        </div>
+      </a>
+      <nav class="site-nav" data-site-nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="order.html">Order Ahead</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">About / Contact</a>
+      </nav>
+      <a class="btn btn-secondary btn-small cart-mini" href="order.html">Cart <span class="cart-badge" data-cart-count>0</span></a>
+      <button class="mobile-nav-toggle" data-mobile-nav-toggle aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Live music + community</p>
+        <h1 class="page-title">Events</h1>
+        <p class="page-intro">This page gives the restaurant an actual event presence instead of forcing everything through Facebook. Upcoming dates stay visible, and past flyers prove the place has motion.</p>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Upcoming</p>
+            <h2>Keep future dates easy to find</h2>
+          </div>
+        </div>
+        <div class="event-grid" data-render="events-upcoming"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container section-shell">
+        <div class="cta-band">
+          <div class="cta-copy">
+            <p class="eyebrow">Why this page matters</p>
+            <h2>Restaurants with entertainment should not look dead online.</h2>
+            <p>This demo gives Mas Salsa a home for upcoming music nights, return dates, and archived flyers. That makes the place feel established, active, and worth checking out.</p>
+            <div class="inline-actions">
+              <a class="btn btn-primary" data-facebook target="_blank" rel="noreferrer">View Facebook updates</a>
+              <a class="btn btn-secondary" href="contact.html">Call the restaurant</a>
+            </div>
+          </div>
+          <div class="cta-image">
+            <img src="assets/event-mas-salsa-music.jpg" alt="Mas Salsa music night flyer">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Past event highlights</p>
+            <h2>Archive the flyers. Don’t bury the proof.</h2>
+          </div>
+        </div>
+        <div class="event-grid" data-render="events-past"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-shell section-shell">
+        <div>
+          <img class="footer-logo" src="assets/logo-cropped.jpg" alt="Mas Salsa logo">
+          <p>Demo build for Mas Salsa Tex Mex Restaurant. Built to feel real, stay deployable on GitHub Pages, and give the owner a believable order-ahead experience.</p>
+        </div>
+        <div>
+          <h3>Visit</h3>
+          <ul>
+            <li><a data-maps target="_blank" rel="noreferrer">5500 W Highway 199, Springtown, TX 76082</a></li>
+            <li><a data-phone-href><span data-phone>(817) 220-6555</span></a></li>
+            <li><a data-facebook target="_blank" rel="noreferrer">Facebook page</a></li>
+            <li><a href="order.html">Order Ahead demo</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Hours</h3>
+          <div class="hours-panel" data-render="hours"></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

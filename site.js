@@ -323,7 +323,7 @@
         <div class="price-pill">${money(item.price)}</div>
       </div>
       <p class="menu-meta">${item.startsAt ? 'Base starting price shown.' : 'Current menu item.'}</p>
-      ${orderable ? `<button class="btn btn-small btn-primary">Customize</button>` : `<span class="menu-note">${item.price == null ? 'Ask restaurant for current pricing.' : 'Menu reference only.'}</span>`}
+      ${orderable ? `<button class="btn btn-small btn-primary">Add to cart</button>` : `<span class="menu-note">${item.price == null ? 'Ask restaurant for current pricing.' : 'Menu reference only.'}</span>`}
     `;
     if (orderable) {
       card.querySelector('button').addEventListener('click', () => openItemModal(category, item));

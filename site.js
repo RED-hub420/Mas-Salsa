@@ -218,6 +218,7 @@
   function openItemModal(category, item) {
     const modal = document.querySelector('#item-modal');
     const content = document.querySelector('#item-modal-content');
+    const closeButton = document.querySelector('#item-modal .modal-close');
     if (!modal || !content) return;
     const groups = getModifierGroups(category, item);
     content.innerHTML = `
@@ -266,9 +267,11 @@
     `;
     modal.hidden = false;
     document.body.classList.add('modal-open');
+    if (closeButton) closeButton.onclick = closeItemModal;
 
-    content.querySelectorAll('[data-modal-close]').forEach(btn => btn.addEventListener('click', closeItemModal));
-    const form = document.querySelector('#item-config-form');
+    content.querySelectorAll('[data-modal-close]').forEach(btn => btn.onclick = closeItemModal);
+    const form = content.querySelector('#item-config-form');
+    if (!form) return;
     form.addEventListener('submit', event => {
       event.preventDefault();
       const formData = new FormData(form);
@@ -301,7 +304,7 @@
       line.signature = createSignature(line);
       addLineToCart(line);
       closeItemModal();
-    });
+    }, { once: true });
   }
 
   function closeItemModal() {
@@ -413,7 +416,7 @@
               <div><span>Total</span><strong>${money(total)}</strong></div>
               <div><span>Pickup phone</span><strong>${formData.get('phone') || data.restaurant.phone}</strong></div>
             </div>
-            <p class="confirmation-note">Payment and kitchen routing are not connected yet on this website preview.</p>
+            <p class="confirmation-note">This request sends the order details only. Final payment is handled at the restaurant.</p>
             <button class="btn btn-primary" id="start-new-order">Start a new order</button>
           </div>
         `;
@@ -429,6 +432,11 @@
     }
 
     const modal = document.querySelector('#item-modal');
+    const modalClose = document.querySelector('#item-modal .modal-close');
+    if (modalClose && !modalClose.dataset.wired) {
+      modalClose.dataset.wired = 'true';
+      modalClose.addEventListener('click', closeItemModal);
+    }
     if (modal && !modal.dataset.wired) {
       modal.dataset.wired = 'true';
       modal.addEventListener('click', event => {
@@ -561,7 +569,7 @@
     }
     const upcoming = document.querySelector('[data-render="upcoming-events"]');
     if (upcoming) {
-      upcoming.innerHTML = data.upcomingEvents.map(event => `
+      upcoming.innerHTML = data.upcomingEvents.slice(0, 1).map(event => `
         <article class="event-card">
           <img src="${event.image}" alt="${event.title}">
           <div class="event-content">

@@ -32,18 +32,11 @@ window.MAS_DATA = {
   ],
   upcomingEvents: [
     {
-      title: "Texas Backroads Return Night",
-      dateLabel: "Saturday, May 16 • 6–9 PM",
-      description: "Acoustic blend of popular classic rock and country.",
+      title: "Texas Backroads Return Dates",
+      dateLabel: "Saturday, May 16 and Saturday, July 4 • 6–9 PM",
+      description: "Texas Backroads return dates currently posted by the restaurant.",
       image: "assets/event-texas-backroads.jpg",
-      cta: "View live music page"
-    },
-    {
-      title: "Texas Backroads Holiday Set",
-      dateLabel: "Saturday, July 4 • 6–9 PM",
-      description: "Summer return date promoted on the restaurant flyer.",
-      image: "assets/event-texas-backroads.jpg",
-      cta: "See event details"
+      cta: "See live music details"
     }
   ],
   pastEvents: [

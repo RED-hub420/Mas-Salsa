@@ -34,19 +34,34 @@
   </header>
 
   <main>
-    <section class="page-hero">
+    <section class="page-hero menu-page-hero">
       <div class="container">
-        <p class="eyebrow">Food and drinks</p>
-        <h1 class="page-title">Menu</h1>
-        <p class="page-intro">Browse the current menu categories, including Tex-Mex plates, drinks, kids meals, desserts, and bar offerings.</p>
-        <div class="toolbar">
+        <div class="menu-page-shell section-shell">
+          <div class="menu-page-copy">
+            <p class="eyebrow">Food and drinks</p>
+            <h1 class="page-title">Menu</h1>
+            <p class="page-intro">Browse the full restaurant menu, including plates, kids meals, desserts, mocktails, beer, liquor, cocktails, and wine.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="order.html">Start pickup order</a>
+              <a class="btn btn-secondary" data-phone-href><span data-phone>(817) 220-6555</span></a>
+            </div>
+          </div>
+          <div class="menu-page-side">
+            <div class="menu-page-note">
+              <span>Pickup ordering</span>
+              <strong>Use Order Ahead for food and non-alcoholic drinks.</strong>
+            </div>
+            <div class="menu-page-note">
+              <span>Browse the full menu</span>
+              <strong>Beer, liquor, cocktails, and wine stay here for reference.</strong>
+            </div>
+          </div>
+        </div>
+        <div class="toolbar menu-toolbar">
           <input class="search" data-menu-search type="search" placeholder="Search menu items">
           <div class="chip-row" data-category-chips="menu"></div>
         </div>
       </div>
-    </section>
-    <section class="section-tight">
-      <div class="container notice">Alcoholic beverages are shown on the menu page for reference. Online pickup ordering here is limited to food and non-alcoholic items.</div>
     </section>
     <section class="section-tight">
       <div class="container menu-stack" data-render="menu-page"></div>

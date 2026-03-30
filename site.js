@@ -322,8 +322,8 @@
         <h3>${item.name}</h3>
         <div class="price-pill">${money(item.price)}</div>
       </div>
-      <p class="menu-meta">${item.startsAt ? 'Base starting price shown.' : 'Current menu item.'}</p>
-      ${orderable ? `<button class="btn btn-small btn-primary">Add to cart</button>` : `<span class="menu-note">${item.price == null ? 'Ask restaurant for current pricing.' : 'Menu reference only.'}</span>`}
+      <p class="menu-meta">${item.note || (item.startsAt ? 'Base starting price shown.' : 'Current menu item.')}</p>
+      ${orderable ? `<button class="btn btn-small btn-primary">Add to cart</button>` : `<span class="menu-note">${item.price == null ? 'Ask restaurant for current pricing.' : ''}</span>`}
     `;
     if (orderable) {
       card.querySelector('button').addEventListener('click', () => openItemModal(category, item));
@@ -356,16 +356,69 @@
     return section;
   }
 
+  function createBrowseMenuCard(item) {
+    const card = document.createElement('article');
+    card.className = 'menu-card browse-item';
+    const note = item.note || (item.startsAt ? 'Starts at listed price.' : '');
+    card.innerHTML = `
+      <div class="browse-item-row">
+        <div class="browse-item-copy">
+          <h3>${item.name}</h3>
+          ${note ? `<p class="menu-meta">${note}</p>` : ''}
+        </div>
+        <div class="price-pill">${money(item.price)}</div>
+      </div>
+    `;
+    return card;
+  }
+
+  function createBrowseSection(category) {
+    const section = document.createElement('section');
+    section.className = 'menu-section browse-section';
+    section.id = category.id;
+    const browseLabel = category.group === 'bar' ? 'Bar' : (category.group === 'drinks' ? 'Drinks' : (category.group === 'dessert' ? 'Desserts' : 'Food'));
+    section.innerHTML = `
+      <div class="browse-section-head">
+        <div>
+          <p class="eyebrow">${browseLabel}</p>
+          <h2>${category.title}</h2>
+          ${category.subtitle ? `<p class="section-subtitle">${category.subtitle}</p>` : ''}
+        </div>
+        ${category.orderable ? `<a class="section-link" href="order.html#${category.id}">Order this section</a>` : ''}
+      </div>
+    `;
+    if (category.sections) {
+      category.sections.forEach(sub => {
+        const wrap = document.createElement('div');
+        wrap.className = 'subsection browse-subsection';
+        wrap.innerHTML = `<h3 class="subsection-title">${sub.title}</h3>`;
+        const list = document.createElement('div');
+        list.className = 'browse-list';
+        sub.items.forEach(item => list.appendChild(createBrowseMenuCard(item)));
+        wrap.appendChild(list);
+        section.appendChild(wrap);
+      });
+    } else {
+      const list = document.createElement('div');
+      list.className = 'browse-list';
+      category.items.forEach(item => list.appendChild(createBrowseMenuCard(item)));
+      section.appendChild(list);
+    }
+    return section;
+  }
+
   function renderMenuPage() {
     const target = document.querySelector('[data-render="menu-page"]');
     if (!target) return;
-    target.innerHTML = '';
-    data.menuCategories.forEach(category => target.appendChild(createSection(category, false)));
+    target.innerHTML = '<div class="menu-browse-grid"></div>';
+    const grid = target.querySelector('.menu-browse-grid');
+    data.menuCategories.forEach(category => grid.appendChild(createBrowseSection(category)));
     renderCategoryChips('[data-category-chips="menu"]', data.menuCategories);
     wireSearch('[data-menu-search]', target);
   }
 
   function renderOrderPage() {
+
     const target = document.querySelector('[data-render="order-page"]');
     if (!target) return;
     const orderCategories = data.menuCategories.filter(c => c.orderable && c.group !== 'bar');

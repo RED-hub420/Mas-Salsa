@@ -66,7 +66,7 @@ button, input, select, textarea { font: inherit; }
   top: 0;
   z-index: 40;
   backdrop-filter: blur(14px);
-  background: rgba(246, 239, 229, 0.82);
+  background: rgba(246, 239, 229, 0.94);
   border-bottom: 1px solid var(--line);
 }
 .header-inner {
@@ -275,6 +275,7 @@ a.btn.btn-ghost, button.btn.btn-ghost { color: var(--green-deep); }
   box-shadow: var(--shadow);
 }
 .feature-card img { aspect-ratio: 4 / 3; object-fit: cover; }
+.feature-card img, .gallery-grid img, .event-card img { backface-visibility: hidden; transform: translateZ(0); }
 .feature-content, .event-content, .contact-card, .promo-card { padding: 1rem; }
 .tag {
   display: inline-flex;
@@ -314,7 +315,46 @@ a.btn.btn-ghost, button.btn.btn-ghost { color: var(--green-deep); }
 .hiring-copy ul { margin: 1rem 0 0; padding-left: 1.2rem; color: var(--muted); }
 
 .page-hero {
-  padding: 2rem 0 1rem;
+  padding: 2.5rem 0 1rem;
+}
+.menu-page-hero {
+  padding-bottom: 0;
+}
+.menu-page-shell {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+.menu-page-copy {
+  padding: 1rem;
+}
+.menu-page-side {
+  display: grid;
+  gap: .85rem;
+  align-content: center;
+}
+.menu-page-note {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,.8);
+  border: 1px solid rgba(0,0,0,.05);
+}
+.menu-page-note span {
+  display: block;
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--green-deep);
+  font-weight: 700;
+  margin-bottom: .35rem;
+}
+.menu-page-note strong {
+  display: block;
+  line-height: 1.4;
+}
+.menu-toolbar {
+  margin-top: 1rem;
 }
 .toolbar {
   display: flex;
@@ -344,11 +384,39 @@ a.btn.btn-ghost, button.btn.btn-ghost { color: var(--green-deep); }
   display: grid;
   gap: 1.25rem;
 }
+.menu-browse-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
 .menu-section {
   background: rgba(255,255,255,.68);
   border: 1px solid rgba(255,255,255,.7);
   border-radius: var(--radius-xl);
   padding: 1.2rem;
+  scroll-margin-top: 104px;
+}
+.browse-section {
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(37,26,22,.06);
+  box-shadow: var(--shadow);
+}
+.browse-section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 1rem;
+}
+.section-link {
+  white-space: nowrap;
+  align-self: start;
+  font-weight: 700;
+  color: var(--red-deep);
+  font-size: .92rem;
+}
+.section-link:hover {
+  text-decoration: underline;
 }
 .menu-grid {
   display: grid;
@@ -360,10 +428,37 @@ a.btn.btn-ghost, button.btn.btn-ghost { color: var(--green-deep); }
   margin: .75rem 0;
   font-size: 1.15rem;
 }
+.browse-subsection + .browse-subsection {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--line);
+}
+.browse-list {
+  display: grid;
+  gap: .7rem;
+}
 .menu-card {
   padding: 1rem;
   display: grid;
   gap: .75rem;
+}
+.browse-item {
+  padding: .95rem 1rem;
+  box-shadow: none;
+  background: var(--bg-soft);
+}
+.browse-item-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+}
+.browse-item-copy h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.browse-item .menu-meta {
+  margin-top: .35rem;
 }
 .menu-card-head {
   display: flex;
@@ -547,7 +642,9 @@ a.btn.btn-ghost, button.btn.btn-ghost { color: var(--green-deep); }
   .footer-shell,
   .hiring-banner,
   .order-layout,
-  .event-card.large { grid-template-columns: 1fr; }
+  .event-card.large,
+  .menu-page-shell,
+  .menu-browse-grid { grid-template-columns: 1fr; }
   .hero-media { grid-template-columns: repeat(2,1fr); }
   .tile.tall { min-height: 280px; }
   .feature-grid, .gallery-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
@@ -732,4 +829,15 @@ body.modal-open { overflow: hidden; }
   .modifier-options-multi { grid-template-columns: 1fr; }
   .modal-actions { flex-direction: column-reverse; }
   .confirmation-list li { flex-direction: column; }
+}
+
+@media (max-width: 720px) {
+  .browse-item-row,
+  .browse-section-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .menu-page-copy {
+    padding: .25rem;
+  }
 }
